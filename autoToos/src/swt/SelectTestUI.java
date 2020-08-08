@@ -68,10 +68,10 @@ public class SelectTestUI extends JFrame {
 		JButton btnAndroiduiautomator = new JButton("AndroidUiautomator");
 		btnAndroiduiautomator.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AndroidUiautomator androidUiautomator = new AndroidUiautomator();
-				androidUiautomator.setLocation(SelectTestUI.this.getX(), SelectTestUI.this.getY());
-				androidUiautomator.setVisible(true);
-				SelectTestUI.this.setVisible(false);
+//				AndroidUiautomator androidUiautomator = new AndroidUiautomator();
+//				androidUiautomator.setLocation(SelectTestUI.this.getX(), SelectTestUI.this.getY());
+//				androidUiautomator.setVisible(true);
+//				SelectTestUI.this.setVisible(false);
 			}
 		});
 		btnAndroiduiautomator.setBounds(301, 94, 186, 32);

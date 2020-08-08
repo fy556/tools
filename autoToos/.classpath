@@ -25,5 +25,7 @@
 	<classpathentry kind="lib" path="E:/git/test/autoToos/libs/AXMLPrinter2.jar"/>
 	<classpathentry kind="lib" path="E:/git/test/autoToos/libs/jna.jar"/>
 	<classpathentry kind="lib" path="E:/git/test/autoToos/libs/jna-3.3.0-platform.jar"/>
+	<classpathentry kind="lib" path="E:/git/test/autoToos/libs/jcommon-1.0.23.jar"/>
+	<classpathentry kind="lib" path="E:/git/test/autoToos/libs/jfreechart-1.0.19.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
