@@ -87,7 +87,7 @@ public class AndroidBatteryTest extends JFrame {
 					}
 					Vector contents=new Vector();
 					for(int i=1;i<list.size()-1;i++){
-					contents.addElement(list.get(i).substring(0,list.get(i).indexOf("\t")));//添加设备名称
+					contents.addElement(list.get(i).substring(0,list.get(i).indexOf("\t")));//娣诲姞璁惧鍚嶇О
 					}
 					label_1.setText(list.get(1).substring(0,list.get(1).indexOf("\t")));
 					reader.close();
@@ -130,7 +130,7 @@ public class AndroidBatteryTest extends JFrame {
 					
 //					Vector contents=new Vector();
 //					for(int i=1;i<list.size()-1;i++){
-//					contents.addElement(list.get(i).substring(0,list.get(i).indexOf("\t")));//添加设备名称
+//					contents.addElement(list.get(i).substring(0,list.get(i).indexOf("\t")));//娣诲姞璁惧鍚嶇О
 //					}
 //					lblNewLabel.setText(list.get(1).substring(0,list.get(1).indexOf("\t")));
 //					reader.close();

@@ -28,7 +28,7 @@ public class MainLogin extends JFrame {
 	private JTextField userNameC;
 	private JPasswordField passwordC;
 	boolean frame=false;
-	static MainLogin UIlogin;//ÒòÎªÒª½çÃæÊı¾İ´«Êä £¬¶¨Îªstatic
+	static MainLogin UIlogin;//å› ä¸ºè¦ç•Œé¢æ•°æ®ä¼ è¾“ ï¼Œå®šä¸ºstatic
 	Signin UIsignin;
 
 	/**
@@ -87,16 +87,16 @@ public class MainLogin extends JFrame {
 		btn_login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String sql = "select * from account where UserName = '" + userNameC.getText() + "';";
-				ResultSet rs = DBHelper.query(sql);// ²éÑ¯±í¸ñÖĞ°üº¬¸ÃÓÃ»§ÃûµÄ¼ÇÂ¼
+				ResultSet rs = DBHelper.query(sql);// æŸ¥è¯¢è¡¨æ ¼ä¸­åŒ…å«è¯¥ç”¨æˆ·åçš„è®°å½•
 				ResultSetMetaData data;
 				try {
 					if (!rs.next()) {
 //						JDialog dialog=new JDialog(UIlogin);
-//						dialog.setTitle("µÇÂ¼ÌáÊ¾");
+//						dialog.setTitle("ç™»å½•æç¤º");
 //						dialog.setBounds(100, 100, 340, 89);
 //						dialog.getContentPane().setLayout(new GridLayout(1, 0, 0, 0));
 //						
-//						JLabel label = new JLabel("ÕËºÅ²»ÄÜÎª¿Õ");
+//						JLabel label = new JLabel("è´¦å·ä¸èƒ½ä¸ºç©º");
 //						label.setHorizontalAlignment(SwingConstants.CENTER);
 //						dialog.getContentPane().add(label);
 //						
@@ -109,10 +109,10 @@ public class MainLogin extends JFrame {
 //						dialog.getContentPane().add(btnOk);
 //						dialog.setModalityType(JDialog.ModalityType.APPLICATION_MODAL);
 //						dialog.setVisible(true);
-						JOptionPane.showMessageDialog(getContentPane(), "ÕËºÅ²»ÄÜÎª¿Õ", "ÌáÊ¾",JOptionPane.WARNING_MESSAGE);  
+						JOptionPane.showMessageDialog(getContentPane(), "è´¦å·ä¸èƒ½ä¸ºç©º", "æç¤º",JOptionPane.WARNING_MESSAGE);  
 					} else {
 					data = (ResultSetMetaData) rs.getMetaData();
-					System.out.println("²éÑ¯ÓÃ»§"+userNameC.getText()+"µÄ½á¹ûÎª£º");
+					System.out.println("æŸ¥è¯¢ç”¨æˆ·"+userNameC.getText()+"çš„ç»“æœä¸ºï¼š");
 					for(int i=1;i<=data.getColumnCount();i++){
 						System.out.print(data.getColumnName(i)+" ");
 					}
@@ -124,20 +124,24 @@ public class MainLogin extends JFrame {
 					System.out.println();
 					String tmp=rs.getString("PassWord");
 					if(tmp.equals(new String(passwordC.getPassword()))){
-						System.out.println("µÇÂ¼³É¹¦");
+						System.out.println("ç™»å½•æˆåŠŸ");
 						SelectTestUI selectTestframe = new SelectTestUI();
 						selectTestframe.setLocation(MainLogin.this.getX(), MainLogin.this.getY());
 						selectTestframe.setVisible(true);
 						MainLogin.this.dispose();
-						UIsignin.dispose();
-						
+						if(UIsignin==null){
+							System.out.println("ç™»å½•æ—¶æœªè¿›å…¥æ³¨å†Œç•Œé¢");
+						}else{
+							System.out.println("ç™»å½•æ—¶è¿›å…¥äº†æ³¨å†Œç•Œé¢ï¼Œå¼€å§‹é”€æ¯æ³¨å†Œç•Œé¢");
+							UIsignin.dispose();	
+						}
 					}else {
 //						JDialog dialog=new JDialog(UIlogin);
-//						dialog.setTitle("µÇÂ¼ÌáÊ¾");
+//						dialog.setTitle("ç™»å½•æç¤º");
 //						dialog.setBounds(100, 100, 340, 89);
 //						dialog.getContentPane().setLayout(new GridLayout(1, 0, 0, 0));
 //						
-//						JLabel label = new JLabel("µÇÂ¼Ê§°Ü,ÃÜÂë´íÎó");
+//						JLabel label = new JLabel("ç™»å½•å¤±è´¥,å¯†ç é”™è¯¯");
 //						label.setHorizontalAlignment(SwingConstants.CENTER);
 //						dialog.getContentPane().add(label);
 //						
@@ -150,7 +154,7 @@ public class MainLogin extends JFrame {
 //						dialog.getContentPane().add(btnOk);
 //						dialog.setModalityType(JDialog.ModalityType.APPLICATION_MODAL);
 //						dialog.setVisible(true);
-						JOptionPane.showMessageDialog(getContentPane(), "ÕËºÅ/ÃÜÂë´íÎó", "ÌáÊ¾",JOptionPane.WARNING_MESSAGE);  
+						JOptionPane.showMessageDialog(getContentPane(), "è´¦å·/å¯†ç é”™è¯¯", "æç¤º",JOptionPane.WARNING_MESSAGE);  
 					}
 
 					}
@@ -174,7 +178,7 @@ public class MainLogin extends JFrame {
 				MainLogin.this.setVisible(false);
 				}else {
 					UIsignin=new Signin();
-					System.out.println("ĞÂ½¨×¢²á´°¿Ú");
+					System.out.println("é¦–æ¬¡è¿›å…¥æ³¨å†Œç•Œé¢ï¼Œæ–°å»ºæ³¨å†Œçª—å£");
 				    frame=true;
 				    UIsignin.setLocation(MainLogin.this.getX(), MainLogin.this.getY());
 				    UIsignin.setVisible(true);

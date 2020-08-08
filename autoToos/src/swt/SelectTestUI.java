@@ -113,7 +113,7 @@ public class SelectTestUI extends JFrame {
 		btnApitest.setBounds(155, 236, 134, 32);
 		contentPane.add(btnApitest);
 		
-		JLabel label = new JLabel("ÇëÑ¡Ôñ²âÊÔÀàĞÍ:");
+		JLabel label = new JLabel("è¯·é€‰æ‹©æµ‹è¯•ç±»å‹:");
 		label.setHorizontalAlignment(SwingConstants.LEFT);
 		label.setBounds(11, 10, 134, 23);
 		contentPane.add(label);

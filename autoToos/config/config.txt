@@ -1,0 +1,93 @@
+[AIOS-Public]
+<PACKAGE>
+com.aispeech.aios
+com.aispeech.aios.adapter
+com.aispeech.aios.wechat
+com.autonavi.amapautolite
+com.autonavi.amapauto
+cn.kuwo.kwmusiccar
+com.ximalaya.ting.android.car
+com.hongfans.rearview
+com.yunos4car.music
+com.edog.car
+<PARAM>
+--ignore-crashes
+--ignore-timeouts
+--kill-process-after-error
+--ignore-security-exceptions
+--throttle 1000
+--pct-touch 60
+--pct-motion 20
+--pct-appswitch 20
+--pct-syskeys 0
+--pct-majornav 0
+-v -v -v
+-s 10000
+2147483647
+<LOGYES>
+keepalive lasa aios System.err died fatal ANR ActivityManager PackageManager WindowManager
+<LOGNO>
+.pcm Mtk
+=========================
+[AIOS-BanYa]
+<PACKAGE>
+com.banyac.midrive.voice
+com.banyac.midrive.fm
+com.banyac.midrive.music
+com.banyac.midrive.map
+com.banyac.midrive.perftracker
+com.banyac.midrive.account
+com.banyac.midrive.launcher
+com.banyac.midrive.update
+com.banyac.midrive.setupwizard
+com.banyac.midrive.dial
+com.banyac.midrive.btphone
+com.banyac.midrive.midriveappmanager
+<PARAM>
+--ignore-crashes
+--ignore-timeouts
+--kill-process-after-error
+--ignore-security-exceptions
+--throttle 1000
+--pct-touch 60
+--pct-motion 10
+--pct-trackball 10
+--pct-appswitch 20
+--pct-syskeys 0
+--pct-majornav 0
+-v -v -v
+-s 10000
+2147483647
+<LOGYES>
+keepalive lasa aios System.err died fatal ANR ActivityManager PackageManager WindowManager
+<LOGNO>
+.pcm Mtk
+=========================
+[AIOS-Tianqin]
+<PACKAGE>
+com.aispeech.aios
+com.aispeech.lyra.dialog
+com.aispeech.launcher
+com.aispeech.wechat.presenter
+cn.kuwo.kwmusiccar
+com.ximalaya.ting.android.car
+com.reglink.apps.bluetooth
+<PARAM>
+--ignore-crashes
+--ignore-timeouts
+--kill-process-after-error
+--ignore-security-exceptions
+--throttle 1000
+--pct-touch 60
+--pct-motion 20
+--pct-appswitch 20
+--pct-syskeys 0
+--pct-majornav 0
+-v -v -v
+-s 10000
+2147483647
+<LOGYES>
+keepalive lasa aios System.err died fatal ANR ActivityManager PackageManager WindowManager
+<LOGNO>
+.pcm Mtk
+=========================

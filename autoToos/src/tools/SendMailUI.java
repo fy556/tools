@@ -91,8 +91,8 @@ public class SendMailUI extends JFrame {
 				String ReceiveMailAccount=textField_2.getText();
 				
 				
-				// 1. 创建参数配置, 用于连接邮件服务器的参数配置
-				Properties props = new Properties();                    // 参数配置
+				// 1. 鍒涘缓鍙傛暟閰嶇疆, 鐢ㄤ簬杩炴帴閭欢鏈嶅姟鍣ㄧ殑鍙傛暟閰嶇疆
+				Properties props = new Properties();                    // 鍙傛暟閰嶇疆
 				props.setProperty("mail.transport.protocol", Sendmail_transport_protocol);   
 				props.setProperty("mail.smtp.host", Sendmail_smtpHostAddress);   
 				props.setProperty("mail.smtp.auth", "true");            
@@ -106,15 +106,15 @@ public class SendMailUI extends JFrame {
 				props.setProperty("mail.smtp.socketFactory.port", Sendmail_transport_port);
 
 
-				// 2. 根据配置创建会话对象, 用于和邮件服务器交互
+				// 2. 鏍规嵁閰嶇疆鍒涘缓浼氳瘽瀵硅薄, 鐢ㄤ簬鍜岄偖浠舵湇鍔″櫒浜や簰
 				Session session = Session.getInstance(props);
-				session.setDebug(true);                                 // 设置为debug模式, 可以查看详细的发log
+				session.setDebug(true);                                 // 璁剧疆涓篸ebug妯″紡, 鍙互鏌ョ湅璇︾粏鐨勫彂log
 
-				// 3. 创建
+				// 3. 鍒涘缓
 				MimeMessage message;
 				try {
 					message = createMimeMessage(session, SendmailUserName,ReceiveMailAccount);
-					// 4. 根据 Session 获取邮件传输对象
+					// 4. 鏍规嵁 Session 鑾峰彇閭欢浼犺緭瀵硅薄
 					Transport transport = session.getTransport();
 
 				
@@ -123,7 +123,7 @@ public class SendMailUI extends JFrame {
 					
 					transport.sendMessage(message, message.getAllRecipients());
 
-					// 7. 关闭连接
+					// 7. 鍏抽棴杩炴帴
 					transport.close();
 					
 					
@@ -207,21 +207,21 @@ public class SendMailUI extends JFrame {
 	
 	
 	public static MimeMessage createMimeMessage(Session session, String sendMail, String receiveMail) throws Exception {
-		// 1. 创建
+		// 1. 鍒涘缓
 		MimeMessage message = new MimeMessage(session);
 
-		// 2. From: 发件人（昵称有广告嫌疑，避免被邮件服务器误认为是滥发广告以至返回失败，请修改昵称?
+		// 2. From: 鍙戜欢浜猴紙鏄电О鏈夊箍鍛婂珜鐤戯紝閬垮厤琚偖浠舵湇鍔″櫒璇涓烘槸婊ュ彂骞垮憡浠ヨ嚦杩斿洖澶辫触锛岃淇敼鏄电О?
 		message.setFrom(new InternetAddress(sendMail, "test1", "UTF-8"));
 
-		// 3. To: 收件人（可以增加多个收件人抄送密送）
-		message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiveMail, "XX用户", "UTF-8"));
+		// 3. To: 鏀朵欢浜猴紙鍙互澧炲姞澶氫釜鏀朵欢浜烘妱閫佸瘑閫侊級
+		message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiveMail, "XX鐢ㄦ埛", "UTF-8"));
 
-		// 4. Subject: 邮件主题（标题有广告嫌疑，避免被邮件服务器误认为是滥发广告以至返回失败，请修改标题）
+		// 4. Subject: 閭欢涓婚锛堟爣棰樻湁骞垮憡瀚岀枒锛岄伩鍏嶈閭欢鏈嶅姟鍣ㄨ璁や负鏄互鍙戝箍鍛婁互鑷宠繑鍥炲け璐ワ紝璇蜂慨鏀规爣棰橈級
 		message.setSubject("test", "UTF-8");
 
-		// 5. Content: 邮件正文（可以使用html标签）（内容有广告嫌疑，避免被邮件服务器误认为是滥发广告以至返回失败，请修改发内容）
+		// 5. Content: 閭欢姝ｆ枃锛堝彲浠ヤ娇鐢╤tml鏍囩锛夛紙鍐呭鏈夊箍鍛婂珜鐤戯紝閬垮厤琚偖浠舵湇鍔″櫒璇涓烘槸婊ュ彂骞垮憡浠ヨ嚦杩斿洖澶辫触锛岃淇敼鍙戝唴瀹癸級
 		MimeBodyPart text=new MimeBodyPart();
-		text.setContent("XX用户你好", "text/html;charset=UTF-8");
+		text.setContent("XX鐢ㄦ埛浣犲ソ", "text/html;charset=UTF-8");
 
 		MimeBodyPart attachment=new MimeBodyPart();
 		DataHandler dh2=new DataHandler(new FileDataSource("E:/UIAuto/1.xml"));
@@ -234,10 +234,10 @@ public class SendMailUI extends JFrame {
 		mm.setSubType("mixed");
 
 		message.setContent(mm);
-		// 6. 设置发件时间
+		// 6. 璁剧疆鍙戜欢鏃堕棿
 		message.setSentDate(new Date());
 
-		// 7. 保存设置
+		// 7. 淇濆瓨璁剧疆
 		message.saveChanges();
 
 		return message;

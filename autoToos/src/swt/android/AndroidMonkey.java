@@ -80,7 +80,7 @@ public class AndroidMonkey extends JFrame {
 
 		JLabel lblMonkey = new JLabel("Android monkey\u6D4B\u8BD5");
 		lblMonkey.setBounds(230, 17, 168, 20);
-		lblMonkey.setFont(new Font("ËÎÌå", Font.PLAIN, 17));
+		lblMonkey.setFont(new Font("å®‹ä½“", Font.PLAIN, 17));
 		contentPane.add(lblMonkey);
 
 		JButton button = new JButton("\u67E5\u8BE2\u8FDE\u63A5\u8BBE\u5907");
@@ -93,7 +93,7 @@ public class AndroidMonkey extends JFrame {
 				stringBuilder.append("\\devices.txt");
 				String cmd=stringBuilder.toString();
 
-				System.out.println("Ö´ĞĞÃüÁî£º");
+				System.out.println("æ‰§è¡Œå‘½ä»¤ï¼š");
 				execCmd(cmd);
 				File devicesfile = new File(f+"\\devices.txt");
 				try {
@@ -106,12 +106,12 @@ public class AndroidMonkey extends JFrame {
 						count++;
 					}
 					devices=count-2;
-					System.out.println("Éè±¸ÊıÁ¿Îª£º"+devices);
+					System.out.println("è®¾å¤‡æ•°é‡ä¸ºï¼š"+devices);
 					textField.setText(devices+"");
 					System.out.println(list.get(1));
 					Vector contents=new Vector();
 					for(int i=1;i<list.size()-1;i++){
-						contents.addElement(list.get(i).substring(0,list.get(i).indexOf("\t")));//Ìí¼ÓÉè±¸Ãû³Æ
+						contents.addElement(list.get(i).substring(0,list.get(i).indexOf("\t")));//æ·»åŠ è®¾å¤‡åç§°
 					}
 					list_1=new JList(contents);
 					scrollPane1.setViewportView(list_1);
@@ -150,7 +150,7 @@ public class AndroidMonkey extends JFrame {
 				stringBuilder.append("\\package.txt");
 				String cmd=stringBuilder.toString();
 
-				System.out.println("Ö´ĞĞÃüÁî£º");
+				System.out.println("æ‰§è¡Œå‘½ä»¤ï¼š");
 				execCmd(cmd);
 				File devicesfile = new File(f+"\\package.txt");
 				try {
@@ -163,7 +163,7 @@ public class AndroidMonkey extends JFrame {
 						count++;
 					}
 					packages=count;
-					System.out.println("°²×°°üÊıÁ¿Îª£º"+packages);
+					System.out.println("å®‰è£…åŒ…æ•°é‡ä¸ºï¼š"+packages);
 					textField.setText(packages+"");
 					//					System.out.println(list.get(1));
 

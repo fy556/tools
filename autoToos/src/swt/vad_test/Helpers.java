@@ -66,7 +66,7 @@ public class Helpers extends JFrame {
 	 * Create the frame.
 	 */
 	public Helpers() {
-		setTitle("¸¨Öú¹¤¾ß");
+		setTitle("è¾…åŠ©å·¥å…·");
 		
 		File helpersFileDir=new File(tooldir+"\\helpers\\");
 		if(!helpersFileDir.exists()&&!helpersFileDir.isDirectory()){
@@ -101,8 +101,8 @@ public class Helpers extends JFrame {
 		        chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 		        chooser.setCurrentDirectory(new File(helpersFileDirPath));
 //		        chooser.setSelectedFile(new File(helpersFileDirPath));
-		        chooser.setDialogTitle("Ñ¡ÔñÎÄ¼ş");
-		        chooser.showDialog(new JLabel(), "Ñ¡Ôñ");//Ñ¡ÔñVadÒôÆµÄ¿Â¼
+		        chooser.setDialogTitle("é€‰æ‹©æ–‡ä»¶");
+		        chooser.showDialog(new JLabel(), "é€‰æ‹©");//é€‰æ‹©VadéŸ³é¢‘ç›®å½•
 		        File file = chooser.getSelectedFile();
 		        
 		        try {
@@ -111,7 +111,7 @@ public class Helpers extends JFrame {
 			        }
 				} catch (Exception e2) {
 					// TODO: handle exception
-					System.out.println("Î´Ñ¡ÔñÎÄ¼ş");
+					System.out.println("æœªé€‰æ‹©æ–‡ä»¶");
 				}
 		        
 		        
@@ -133,22 +133,22 @@ public class Helpers extends JFrame {
 				if(!textField.getText().isEmpty()){
 					if(new File(textField.getText()).isFile()){
 						try {
-							//»ñÈ¡Ä¿Â¼ÏÂÎÄ¼şÃûĞÅÏ¢
-							readfile(textField.getText());//»ñÈ¡ÒôÆµÁĞ±íÊı¾İ
+							//è·å–ç›®å½•ä¸‹æ–‡ä»¶åä¿¡æ¯
+							readfile(textField.getText());//è·å–éŸ³é¢‘åˆ—è¡¨æ•°æ®
 							
 							
-							//´´½¨Ä¿Â¼
+							//åˆ›å»ºç›®å½•
 							String strTime=dateFormat.format(new Date().getTime());
 							File file=new File(helpersFileDirPath+"\\"+strTime);
 							if(!file.exists()){
 								file.mkdir();
 								if(file.exists()){
 									copyDirPath=file.getAbsolutePath();
-									System.out.println("´´½¨Ä¿Â¼"+helpersFileDirPath+"\\"+strTime+"³É¹¦");
+									System.out.println("åˆ›å»ºç›®å½•"+helpersFileDirPath+"\\"+strTime+"æˆåŠŸ");
 								}
 							}
 							
-							//copyÎÄ¼şµ½´´½¨Ä¿Â¼ÏÂ
+							//copyæ–‡ä»¶åˆ°åˆ›å»ºç›®å½•ä¸‹
 							if(audioNames.size()!=0){
 								if(!textField_1.getText().isEmpty()){
 									scanDirfile_copy(textField_1.getText());
@@ -194,8 +194,8 @@ public class Helpers extends JFrame {
 		        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 		        chooser.setCurrentDirectory(new File(System.getProperty("user.dir")));
 //		        chooser.setSelectedFile(new File(VadFileDirPath));
-		        chooser.setDialogTitle("Ñ¡ÔñÒôÆµÄ¿Â¼");
-		        chooser.showDialog(new JLabel(), "Ñ¡Ôñ");//Ñ¡ÔñVadÒôÆµÄ¿Â¼
+		        chooser.setDialogTitle("é€‰æ‹©éŸ³é¢‘ç›®å½•");
+		        chooser.showDialog(new JLabel(), "é€‰æ‹©");//é€‰æ‹©VadéŸ³é¢‘ç›®å½•
 		        File file = chooser.getSelectedFile();
 		        
 		        try {
@@ -204,7 +204,7 @@ public class Helpers extends JFrame {
 			        }
 				} catch (Exception e2) {
 					// TODO: handle exception
-					System.out.println("Î´Ñ¡ÔñÒôÆµÄ¿Â¼");
+					System.out.println("æœªé€‰æ‹©éŸ³é¢‘ç›®å½•");
 				}
 		       
 			}
@@ -227,7 +227,7 @@ public class Helpers extends JFrame {
 			int count=0;
 			while((strRead = reader.readLine())!= null){
 				count++;
-//				System.out.println("µÚ"+count+"ĞĞÎª:"+strRead);
+//				System.out.println("ç¬¬"+count+"è¡Œä¸º:"+strRead);
 				audioNames.add(strRead);
 			}
 			reader.close();
@@ -256,7 +256,7 @@ public class Helpers extends JFrame {
 				        
 				        
 				        Runtime.getRuntime().exec(cmd);
-				        if(count==999){//Èç¹ûÏÔÊ¾ÁË1000ĞĞÄÚÈİ£¬Ôò½øĞĞÇå¿Õ
+				        if(count==999){//å¦‚æœæ˜¾ç¤ºäº†1000è¡Œå†…å®¹ï¼Œåˆ™è¿›è¡Œæ¸…ç©º
 			        		textArea.setText(""); 
 			        		count=0;
 			        	}

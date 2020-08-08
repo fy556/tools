@@ -73,27 +73,27 @@ public class VadJF extends JFrame {
 	String cmd;
 	
 	
-	//ÓÃÀ´Éú³ÉÈÕÖ¾ÎÄ¼şÃû
+	//ç”¨æ¥ç”Ÿæˆæ—¥å¿—æ–‡ä»¶å
 	long dateTime;
 	
 	
 	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmssSSS");
 	
-	//vadÎÄ¼ş×ÜÊıÁ¿
+	//vadæ–‡ä»¶æ€»æ•°é‡
 	int vadfileSum;
 	
-	//²âÊÔ×´Ì¬ÒÑ¾­Æô¶¯µÄ±êÇ©£¨ÓÃÀ´¿ØÖÆÍ£Ö¹²âÊÔ£©
+	//æµ‹è¯•çŠ¶æ€å·²ç»å¯åŠ¨çš„æ ‡ç­¾ï¼ˆç”¨æ¥æ§åˆ¶åœæ­¢æµ‹è¯•ï¼‰
 //	boolean testStart=false;
 	boolean testStop=false;
 	
-	//ÓÃÀ´ÏÔÊ¾ÒôÆµÄ¿Â¼Â·¾¶µÄtext
+	//ç”¨æ¥æ˜¾ç¤ºéŸ³é¢‘ç›®å½•è·¯å¾„çš„text
 	private JTextField textField;
 	
-	//ÓÃÀ´ÏÔÊ¾ÈÕÖ¾ÎÄ¼şµÄtext
+	//ç”¨æ¥æ˜¾ç¤ºæ—¥å¿—æ–‡ä»¶çš„text
 	private JTextField textField_1;
 	
 	
-	//Éú³É±¨¸æËùÒªµÄÊı¾İ
+	//ç”ŸæˆæŠ¥å‘Šæ‰€è¦çš„æ•°æ®
 	List<String> file_name_list=new ArrayList<String>();
 	List<String> file_timeLong_list=new ArrayList<String>();
 	List<String> feed_file_timelist=new ArrayList<String>();
@@ -102,26 +102,26 @@ public class VadJF extends JFrame {
 	List<String> vad_endTimelist=new ArrayList<String>();
 	List<String> asrIdentify_Resultlist=new ArrayList<String>();
 	
-	//×î½üÉú³ÉµÄ±¨¸æ
+	//æœ€è¿‘ç”Ÿæˆçš„æŠ¥å‘Š
 	String Recent;
 	
-	//Éè±¸device
+	//è®¾å¤‡device
 	String deviceID;
 	List<String> deviceIDlist=new ArrayList<String>();
 	
-	//±êÇ©
+	//æ ‡ç­¾
 	JLabel lblNewLabel_1;
 	JLabel lblDevices;
 	JLabel lblAndroid;
 	
-	//¼ì²â²âÊÔ°üÊÇ·ñ°²×°£º
+	//æ£€æµ‹æµ‹è¯•åŒ…æ˜¯å¦å®‰è£…ï¼š
 	boolean installed_sample=false;
 	boolean installed_sample_test=false;
 	
 	String installed_sample_applastTime;
 	String installed_sample_test_applastTime;
 	
-	//°²×°apk ²¢pushÎÄ¼ş±êÖ¾£º
+	//å®‰è£…apk å¹¶pushæ–‡ä»¶æ ‡å¿—ï¼š
 	boolean installed_pushed=false;
 	
 	private JButton btnNewButton;
@@ -130,7 +130,7 @@ public class VadJF extends JFrame {
 	private JButton button_2;
 	
 	
-	//ÈÕÖ¾ÎÄ¼ş×îºóÒ»ĞĞÄÚÈİ
+	//æ—¥å¿—æ–‡ä»¶æœ€åä¸€è¡Œå†…å®¹
 	String lastlineContent;
 	private JButton button_3;
 	
@@ -172,7 +172,7 @@ public class VadJF extends JFrame {
 	}
 	
 	
-	//×Ô¶¯¼ì²âÉè±¸Á¬½Ó
+	//è‡ªåŠ¨æ£€æµ‹è®¾å¤‡è¿æ¥
 	public void autoCheck_connect(){
 		new Thread(new Runnable() {
 			
@@ -193,10 +193,10 @@ public class VadJF extends JFrame {
 				        	 if(s.contains("device")&&(!s.contains("List"))){
 				        		 String[] sList=s.split("\t");
 //				        		 System.out.println(sList[0]);
-				        		 if(deviceIDlist.isEmpty()){//Èç¹ûÉè±¸idÁĞ±íÊÇ¿Õ£¬Ôò°ÑÉè±¸idÌí¼Óµ½Éè±¸idÁĞ±íÖĞ
+				        		 if(deviceIDlist.isEmpty()){//å¦‚æœè®¾å¤‡idåˆ—è¡¨æ˜¯ç©ºï¼Œåˆ™æŠŠè®¾å¤‡idæ·»åŠ åˆ°è®¾å¤‡idåˆ—è¡¨ä¸­
 				        			 deviceIDlist.add(sList[0]);
-				        		 }else {//Èç¹û²»Îª¿Õ
-									if(!deviceIDlist.contains(sList[0])){//ÏÈ²é¿´Éè±¸ÁĞ±íÖĞÈç¹û²»´æÔÚÉè±¸ID,Ôò°Ñ¸ÃÉè±¸idÌí¼Óµ½Éè±¸idÁĞ±íÖĞ
+				        		 }else {//å¦‚æœä¸ä¸ºç©º
+									if(!deviceIDlist.contains(sList[0])){//å…ˆæŸ¥çœ‹è®¾å¤‡åˆ—è¡¨ä¸­å¦‚æœä¸å­˜åœ¨è®¾å¤‡ID,åˆ™æŠŠè¯¥è®¾å¤‡idæ·»åŠ åˆ°è®¾å¤‡idåˆ—è¡¨ä¸­
 										deviceIDlist.add(sList[0]);
 									}
 								}
@@ -206,22 +206,22 @@ public class VadJF extends JFrame {
 				        input.close();
 //				        System.out.println(deviceIDlist.size());
 				        if(deviceIDlist.isEmpty()){
-				        	lblNewLabel_1.setText("Éè±¸ÊÇ·ñÁ¬½Ó£ºÎ´Á¬½Ó");
-				        	lblDevices.setText("deviceID£º");
-				        	lblAndroid.setText("Android£º");
+				        	lblNewLabel_1.setText("è®¾å¤‡æ˜¯å¦è¿æ¥ï¼šæœªè¿æ¥");
+				        	lblDevices.setText("deviceIDï¼š");
+				        	lblAndroid.setText("Androidï¼š");
 				        	btnNewButton.setEnabled(false);
 				        	btn_start.setEnabled(false);
 				        	
 				        }else {
-				        	lblNewLabel_1.setText("Éè±¸ÊÇ·ñÁ¬½Ó£ºÒÑÁ¬½Ó");
-				        	lblDevices.setText("deviceID£º"+deviceIDlist.get(0));
+				        	lblNewLabel_1.setText("è®¾å¤‡æ˜¯å¦è¿æ¥ï¼šå·²è¿æ¥");
+				        	lblDevices.setText("deviceIDï¼š"+deviceIDlist.get(0));
 				        	
 				        	process = Runtime.getRuntime().exec("adb\\adb.exe -s "+deviceIDlist.get(0)+ " shell \"getprop ro.build.version.release\"");
 					        BufferedReader reader1 = new BufferedReader(new InputStreamReader(process.getInputStream(),"UTF-8"));
 					        String s1 = reader1.readLine();
 					        if(s1!=null){
 //					        	System.out.println(s1);
-					        	lblAndroid.setText("Android£º"+s1);
+					        	lblAndroid.setText("Androidï¼š"+s1);
 					        }
 					        reader1.close();
 					        btnNewButton.setEnabled(true);
@@ -242,7 +242,7 @@ public class VadJF extends JFrame {
 		}).start();
 	}
 	
-	//¼ì²âapp°²×°
+	//æ£€æµ‹appå®‰è£…
 	public void Check_appInstall(){
 		new Thread(new Runnable() {
 			
@@ -253,21 +253,21 @@ public class VadJF extends JFrame {
 				
 				try {
 					String cmd1="adb\\adb.exe -s "+deviceIDlist.get(0);
-					System.out.println("deviceIDlist_SIZE£º"+deviceIDlist.size());
-					System.out.println("deviceIDlist_get(0)£º"+deviceIDlist.get(0));
+					System.out.println("deviceIDlist_SIZEï¼š"+deviceIDlist.size());
+					System.out.println("deviceIDlist_get(0)ï¼š"+deviceIDlist.get(0));
 					cmd=cmd1;
 					
 					exeC(cmd1+" shell pm list packages -3");
 
-					if(!installed_sample){//Èç¹ûÎ´°²×°sample-debug.apk£¬Ôò°²×°
+					if(!installed_sample){//å¦‚æœæœªå®‰è£…sample-debug.apkï¼Œåˆ™å®‰è£…
 						exeC(cmd1+" install -t -r "+"apk\\sample-debug.apk");
 					}else {
 //						exeC(cmd1+" install -t -r "+"apk\\sample-debug.apk");
 					}
-					if(!installed_sample_test){//Èç¹ûÎ´°²×°sample-debug-androidTest.apk£¬Ôò°²×°
+					if(!installed_sample_test){//å¦‚æœæœªå®‰è£…sample-debug-androidTest.apkï¼Œåˆ™å®‰è£…
 						exeC(cmd1+" install -t -r "+"apk\\sample-debug-androidTest.apk");
 					}else {
-						//ÒÑ¾­°²×°ÁË£¬ÔòÌæ»»
+						//å·²ç»å®‰è£…äº†ï¼Œåˆ™æ›¿æ¢
 						exeC(cmd1+" install -t -r "+"apk\\sample-debug-androidTest.apk");
 					}
 
@@ -277,10 +277,10 @@ public class VadJF extends JFrame {
 					File vadfiles=new File(textField.getText());
 					File[] vadfileList = vadfiles.listFiles();
 					String[] vadfilenames=vadfiles.list();
-					textArea.append("¸ÃÄ¿Â¼ÏÂÎÄ¼şÊıÁ¿Îª£º"+vadfileList.length+"£¬ÈçÏÂËùÊ¾:\n");
+					textArea.append("è¯¥ç›®å½•ä¸‹æ–‡ä»¶æ•°é‡ä¸ºï¼š"+vadfileList.length+"ï¼Œå¦‚ä¸‹æ‰€ç¤º:\n");
 					textArea.paintImmediately(textArea.getBounds());
 					textArea.setCaretPosition(textArea.getText().length());
-					System.out.println("¸ÃÄ¿Â¼ÏÂÎÄ¼şÊıÁ¿Îª£º"+vadfileList.length);
+					System.out.println("è¯¥ç›®å½•ä¸‹æ–‡ä»¶æ•°é‡ä¸ºï¼š"+vadfileList.length);
 					int fileSum=0;
 					boolean dir_blank=false;
 					if(vadfiles.isDirectory()&&vadfiles.getPath().equals(VadFileDirPath)){
@@ -314,7 +314,7 @@ public class VadJF extends JFrame {
 								//							} catch (BadLocationException e1) {
 								//								// TODO Auto-generated catch block
 								//								e1.printStackTrace();
-								//							}//¶ÔÎÄ±¾½øĞĞ×·¼Ó
+								//							}//å¯¹æ–‡æœ¬è¿›è¡Œè¿½åŠ 
 								//							try {
 								//								textPane.setText(docs.getText(0, docs.getLength()));
 								//							} catch (BadLocationException e) {
@@ -325,7 +325,7 @@ public class VadJF extends JFrame {
 								textArea.paintImmediately(textArea.getBounds());
 								textArea.setCaretPosition(textArea.getText().length());
 								try {
-									textArea.append("¿ªÊ¼Ö´ĞĞpushÎÄ¼ş£º"+vadfilenames[i]+"\n");
+									textArea.append("å¼€å§‹æ‰§è¡Œpushæ–‡ä»¶ï¼š"+vadfilenames[i]+"\n");
 									textArea.paintImmediately(textArea.getBounds());
 									System.out.println(vadfileList[i].getParent());
 									exeC(cmd1+" push "+"VadFileDir\\"+vadfilenames[i]+" /sdcard/vadTest/"+vadfilenames[i]);
@@ -367,14 +367,14 @@ public class VadJF extends JFrame {
 								textArea.paintImmediately(textArea.getBounds());
 								textArea.setCaretPosition(textArea.getText().length());
 								try {
-									textArea.append("¿ªÊ¼Ö´ĞĞpushÎÄ¼ş£º"+vadfilenames[i]+"\n");
+									textArea.append("å¼€å§‹æ‰§è¡Œpushæ–‡ä»¶ï¼š"+vadfilenames[i]+"\n");
 									textArea.paintImmediately(textArea.getBounds());
 									System.out.println(vadfileList[i].getParent());
 									if(vadfileList[i].getPath().contains(" ")){
 										dir_blank=true;
 //										String a=vadfileList[i].getPath().replaceAll(" ", "\\\\\" \\\\\"");
 //										exeC(cmd1+" push "+"\""+a+"\""+" /sdcard/vadTest/"+vadfilenames[i]);
-										JOptionPane.showMessageDialog(getContentPane(),"·Ç¹¤¾ßÄ¬ÈÏ²âÊÔÒôÆµÄ¿Â¼ÏÂµÄÂ·¾¶£¬ÆäËû²âÊÔÒôÆµÄ¿Â¼Â·¾¶ÖĞº¬ÓĞ¿Õ¸ñ£¬Çë°ÑÒôÆµÎÄ¼ş·ÅÔÚ²»º¬ÓĞ¿Õ¸ñµÄÂ·¾¶Ä¿Â¼ÏÂ");
+										JOptionPane.showMessageDialog(getContentPane(),"éå·¥å…·é»˜è®¤æµ‹è¯•éŸ³é¢‘ç›®å½•ä¸‹çš„è·¯å¾„ï¼Œå…¶ä»–æµ‹è¯•éŸ³é¢‘ç›®å½•è·¯å¾„ä¸­å«æœ‰ç©ºæ ¼ï¼Œè¯·æŠŠéŸ³é¢‘æ–‡ä»¶æ”¾åœ¨ä¸å«æœ‰ç©ºæ ¼çš„è·¯å¾„ç›®å½•ä¸‹");
 										break;
 									}else {
 										exeC(cmd1+" push "+"\""+vadfileList[i].getPath()+"\""+" /sdcard/vadTest/"+vadfilenames[i]);
@@ -391,10 +391,10 @@ public class VadJF extends JFrame {
 					vadfileSum=fileSum;
 					installed_pushed=true;
 					if(!dir_blank){
-						textArea.append("pushÎÄ¼ş½áÊø£¬Çë¿ªÊ¼²âÊÔ\n");
+						textArea.append("pushæ–‡ä»¶ç»“æŸï¼Œè¯·å¼€å§‹æµ‹è¯•\n");
 						textArea.paintImmediately(textArea.getBounds());
 					}else {
-						textArea.append("·Ç¹¤¾ßÄ¬ÈÏ²âÊÔÒôÆµÄ¿Â¼ÏÂµÄÂ·¾¶£¬ÆäËû²âÊÔÒôÆµÄ¿Â¼Â·¾¶ÖĞº¬ÓĞ¿Õ¸ñ£¬Çë°ÑÒôÆµÎÄ¼ş·ÅÔÚ²»º¬ÓĞ¿Õ¸ñµÄÂ·¾¶Ä¿Â¼ÏÂ\n");
+						textArea.append("éå·¥å…·é»˜è®¤æµ‹è¯•éŸ³é¢‘ç›®å½•ä¸‹çš„è·¯å¾„ï¼Œå…¶ä»–æµ‹è¯•éŸ³é¢‘ç›®å½•è·¯å¾„ä¸­å«æœ‰ç©ºæ ¼ï¼Œè¯·æŠŠéŸ³é¢‘æ–‡ä»¶æ”¾åœ¨ä¸å«æœ‰ç©ºæ ¼çš„è·¯å¾„ç›®å½•ä¸‹\n");
 						textArea.paintImmediately(textArea.getBounds());
 					}
 					
@@ -418,15 +418,15 @@ public class VadJF extends JFrame {
 	        String s = null;
 	        while((s=reader.readLine())!=null){
 	            if(s.contains("com.aispeech.sample")&&(!s.contains("com.aispeech.sample.test"))){
-	            	System.out.println("´æÔÚ²âÊÔ°ü£ºcom.aispeech.sample");
+	            	System.out.println("å­˜åœ¨æµ‹è¯•åŒ…ï¼šcom.aispeech.sample");
 	            	installed_sample=true;
-	 	            textArea.append("´æÔÚ"+s+"\n");
+	 	            textArea.append("å­˜åœ¨"+s+"\n");
 	 	            textArea.paintImmediately(textArea.getBounds());
 	 	            textArea.setCaretPosition(textArea.getText().length());
 	            }else if(s.contains("com.aispeech.sample.test")){
-	            	System.out.println("´æÔÚ²âÊÔ°ü£ºcom.aispeech.sample.test");
+	            	System.out.println("å­˜åœ¨æµ‹è¯•åŒ…ï¼šcom.aispeech.sample.test");
 	            	installed_sample_test=true;
-	            	textArea.append("´æÔÚ"+s+"\n");
+	            	textArea.append("å­˜åœ¨"+s+"\n");
 	 	            textArea.paintImmediately(textArea.getBounds());
 	 	            textArea.setCaretPosition(textArea.getText().length());
 	            }
@@ -476,7 +476,7 @@ public class VadJF extends JFrame {
 		String pathname=tooldir+"\\logs\\"+time+".txt";
 		File file=new File(pathname);
 //		if(!file.exists()){
-//			System.out.println("´´½¨ÎÄ¼ş"+pathname);
+//			System.out.println("åˆ›å»ºæ–‡ä»¶"+pathname);
 //			file.createNewFile();
 //		}
 		BufferedWriter writer=new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file),"UTF-8"));
@@ -489,7 +489,7 @@ public class VadJF extends JFrame {
         	String writedate=s+"\n";
 //        	System.out.println(""+writedate.length());
         	writer.write(writedate, 0,writedate.length());
-        	writer.flush();//Ë¢ĞÂ»º³åÇø
+        	writer.flush();//åˆ·æ–°ç¼“å†²åŒº
 //        	if(s.contains("unit_test")){
 //        		textArea_1.append(s+"\n");
 //            	textArea_1.paintImmediately(textArea_1.getBounds());
@@ -501,7 +501,7 @@ public class VadJF extends JFrame {
 //    				e.printStackTrace();
 //    			}
 //            	num++;
-//            	if(num==999){//Èç¹ûÏÔÊ¾ÁË1000ĞĞÄÚÈİ£¬Ôò½øĞĞÇå¿Õ
+//            	if(num==999){//å¦‚æœæ˜¾ç¤ºäº†1000è¡Œå†…å®¹ï¼Œåˆ™è¿›è¡Œæ¸…ç©º
 //            		textArea_1.setText(""); 
 //            	}
 //        	}
@@ -516,43 +516,43 @@ public class VadJF extends JFrame {
 				e.printStackTrace();
 			}
         	num++;
-        	if(num==999){//Èç¹ûÏÔÊ¾ÁË1000ĞĞÄÚÈİ£¬Ôò½øĞĞÇå¿Õ
+        	if(num==999){//å¦‚æœæ˜¾ç¤ºäº†1000è¡Œå†…å®¹ï¼Œåˆ™è¿›è¡Œæ¸…ç©º
         		textArea_1.setText(""); 
         		num=0;
         	}
         	
         	
-        	if(s.contains("TestRunner: finished: Vad_test_end_stat")){//Èç¹ûÊÖ¶¯²âÊÔ½áÊø£¬ÔòÍË³ö¸ÃÑ­»·
+        	if(s.contains("TestRunner: finished: Vad_test_end_stat")){//å¦‚æœæ‰‹åŠ¨æµ‹è¯•ç»“æŸï¼Œåˆ™é€€å‡ºè¯¥å¾ªç¯
         		btn_start.setEnabled(true);
         		break;
         	}
         	
-        	if(s.contains("TestRunner: finished: Vad_test1")){//Èç¹ûÕı³£²âÊÔ½áÊø£¬ÔòÍË³ö¸ÃÑ­»·
+        	if(s.contains("TestRunner: finished: Vad_test1")){//å¦‚æœæ­£å¸¸æµ‹è¯•ç»“æŸï¼Œåˆ™é€€å‡ºè¯¥å¾ªç¯
         		btn_start.setEnabled(true);
         		break;
         	}
         	
-        	if(s.contains("com.aispeech.sample E/AndroidRuntime: FATAL EXCEPTION:")){//ÒıÇæ±ÀÀ£
+        	if(s.contains("com.aispeech.sample E/AndroidRuntime: FATAL EXCEPTION:")){//å¼•æ“å´©æºƒ
         		btn_start.setEnabled(true);
         		break;
         	}
         	
-        	if(get_testStop()==true){//ÊÖ¶¯Í£Ö¹²âÊÔÊ±µÄÅĞ¶Ï
+        	if(get_testStop()==true){//æ‰‹åŠ¨åœæ­¢æµ‹è¯•æ—¶çš„åˆ¤æ–­
         		testStop=false;
         		break;
         	}
         }
-        System.out.println("Ö´ĞĞ½áÊøendStat");
-		String writedate1="Ö´ĞĞ½áÊøendStat"+"\n";
+        System.out.println("æ‰§è¡Œç»“æŸendStat");
+		String writedate1="æ‰§è¡Œç»“æŸendStat"+"\n";
     	writer.write(writedate1, 0,writedate1.length());
     	
         reader.close();
         input.close();
-        writer.flush();//Ë¢ĞÂ»º³åÇø
+        writer.flush();//åˆ·æ–°ç¼“å†²åŒº
         writer.close();
         
         
-        textArea_1.append("Ö´ĞĞ½áÊø"+"\n");
+        textArea_1.append("æ‰§è¡Œç»“æŸ"+"\n");
         textArea_1.paintImmediately(textArea_1.getBounds());
         textArea_1.setCaretPosition(textArea_1.getText().length());  
         button_stop.setEnabled(false);
@@ -605,7 +605,7 @@ public class VadJF extends JFrame {
 //	            }
 	        	if(s.contains("com.aispeech.sample")){
 	        		String pid=s.split(" ")[4];
-	        		System.out.println("Ö´ĞĞ½áÊø½ø³Ì£º"+pid);
+	        		System.out.println("æ‰§è¡Œç»“æŸè¿›ç¨‹ï¼š"+pid);
 	        		Runtime.getRuntime().exec(cmd+" shell am force-stop com.aispeech.sample");
 	        	}
 	        }
@@ -665,7 +665,7 @@ public class VadJF extends JFrame {
 	 */
 	public VadJF() {
 		
-		setTitle("DUILite Vad²âÊÔ-1.0.7V");
+		setTitle("DUILite Vadæµ‹è¯•-1.0.7V");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1018, 567);
 		contentPane = new JPanel();
@@ -682,8 +682,8 @@ public class VadJF extends JFrame {
 		        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 		        chooser.setCurrentDirectory(new File(System.getProperty("user.dir")));
 //		        chooser.setSelectedFile(new File(VadFileDirPath));
-		        chooser.setDialogTitle("Ñ¡ÔñVadÒôÆµÄ¿Â¼");
-		        chooser.showDialog(new JLabel(), "Ñ¡Ôñ");//Ñ¡ÔñVadÒôÆµÄ¿Â¼
+		        chooser.setDialogTitle("é€‰æ‹©VadéŸ³é¢‘ç›®å½•");
+		        chooser.showDialog(new JLabel(), "é€‰æ‹©");//é€‰æ‹©VadéŸ³é¢‘ç›®å½•
 		        File file = chooser.getSelectedFile();
 		        
 		        try {
@@ -692,7 +692,7 @@ public class VadJF extends JFrame {
 			        }
 				} catch (Exception e2) {
 					// TODO: handle exception
-					System.out.println("Î´Ñ¡ÔñVadÒôÆµÄ¿Â¼");
+					System.out.println("æœªé€‰æ‹©VadéŸ³é¢‘ç›®å½•");
 				}
 		        
 
@@ -702,7 +702,7 @@ public class VadJF extends JFrame {
 		contentPane.add(button);
 		
 		JLabel lblvad = new JLabel("\u8BF7\u6DFB\u52A0Vad\u6D4B\u8BD5\u97F3\u9891\u8DEF\u5F84");
-		lblvad.setFont(new Font("ºÚÌå", Font.PLAIN, 18));
+		lblvad.setFont(new Font("é»‘ä½“", Font.PLAIN, 18));
 		lblvad.setBounds(10, 23, 293, 32);
 		contentPane.add(lblvad);
 		
@@ -768,17 +768,17 @@ public class VadJF extends JFrame {
 				button_open_tool_dir.setEnabled(true);
 			}
 		});
-		button_open_tool_dir.setFont(new Font("ËÎÌå", Font.PLAIN, 10));
+		button_open_tool_dir.setFont(new Font("å®‹ä½“", Font.PLAIN, 10));
 		button_open_tool_dir.setBounds(903, 23, 99, 23);
 		contentPane.add(button_open_tool_dir);
 		
 		btn_start = new JButton("\u5F00\u59CB\u6D4B\u8BD5");
-		btn_start.setToolTipText("ĞèÒªÁ¬½ÓAndroidÉè±¸");
+		btn_start.setToolTipText("éœ€è¦è¿æ¥Androidè®¾å¤‡");
 		btn_start.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0){
 				btn_start.setEnabled(false);
-				if(!installed_pushed){//Èç¹ûÎ´Ö´ĞĞ°²×°/push°´Å¥
-					JOptionPane.showMessageDialog(getContentPane(),"ÇëÏÈ°²×°apk²¢pushÎÄ¼ş");
+				if(!installed_pushed){//å¦‚æœæœªæ‰§è¡Œå®‰è£…/pushæŒ‰é’®
+					JOptionPane.showMessageDialog(getContentPane(),"è¯·å…ˆå®‰è£…apkå¹¶pushæ–‡ä»¶");
 					btn_start.setEnabled(true);
 				}else {
 					button_stop.setEnabled(true);
@@ -898,10 +898,10 @@ public class VadJF extends JFrame {
 		        chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 		        chooser.setCurrentDirectory(new File(logsFileDirPath));
 //		        chooser.setSelectedFile(new File(logsFileDirPath));
-		        chooser.setDialogTitle("Ñ¡Ôñ²âÊÔÍê±ÏºóµÄÈÕÖ¾ÎÄ¼ş");
-//		        chooser.setApproveButtonText("Ñ¡Ôñ");
+		        chooser.setDialogTitle("é€‰æ‹©æµ‹è¯•å®Œæ¯•åçš„æ—¥å¿—æ–‡ä»¶");
+//		        chooser.setApproveButtonText("é€‰æ‹©");
 //		        chooser.showOpenDialog(null);
-		        chooser.showDialog(null, "Ñ¡Ôñ");//Ñ¡Ôñ²âÊÔÍê±ÏºóµÄÈÕÖ¾ÎÄ¼ş
+		        chooser.showDialog(null, "é€‰æ‹©");//é€‰æ‹©æµ‹è¯•å®Œæ¯•åçš„æ—¥å¿—æ–‡ä»¶
 		        
 		        File file = chooser.getSelectedFile();
 		        try{
@@ -909,7 +909,7 @@ public class VadJF extends JFrame {
 		        		textField_1.setText(file.getAbsoluteFile().toString());
 		        	}
 		        }catch(NullPointerException e){
-		        	System.out.println("Î´Ñ¡ÔñÈÕÖ¾ÎÄ¼ş");
+		        	System.out.println("æœªé€‰æ‹©æ—¥å¿—æ–‡ä»¶");
 		        }
 			}
 		});
@@ -921,7 +921,7 @@ public class VadJF extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				button_look_report.setEnabled(false);
 				if(Recent==null){
-					JOptionPane.showMessageDialog(getContentPane(),"×î½üÎ´Éú³É±¨¸æ");
+					JOptionPane.showMessageDialog(getContentPane(),"æœ€è¿‘æœªç”ŸæˆæŠ¥å‘Š");
 					button_look_report.setEnabled(true);
 				}else {
 					String a=tooldir;
@@ -947,7 +947,7 @@ public class VadJF extends JFrame {
 			}
 		});
 		button_look_report.setBounds(855, 127, 147, 32);
-		button_look_report.setToolTipText("¿ÉÒÔ²é¿´×î½üÒ»·İÉú³ÉµÄ±¨¸æ");
+		button_look_report.setToolTipText("å¯ä»¥æŸ¥çœ‹æœ€è¿‘ä¸€ä»½ç”Ÿæˆçš„æŠ¥å‘Š");
 		contentPane.add(button_look_report);
 		
 		JLabel lblAdb = new JLabel("adb \u65E5\u5FD7");
@@ -973,23 +973,23 @@ public class VadJF extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				button_1.setEnabled(false);
 				if(textField_1.getText().isEmpty()){
-					JOptionPane.showMessageDialog(getContentPane(),"Î´Ñ¡ÔñÈÕÖ¾ÎÄ¼ş£¬ÎŞ·¨Éú³É±¨¸æ");
+					JOptionPane.showMessageDialog(getContentPane(),"æœªé€‰æ‹©æ—¥å¿—æ–‡ä»¶ï¼Œæ— æ³•ç”ŸæˆæŠ¥å‘Š");
 					button_1.setEnabled(true);
 				}else {
 					if(new File(textField_1.getText()).exists()&&new File(textField_1.getText()).isFile()){
 						try {
 							scanfile(textField_1.getText());
-							System.out.println("ÈÕÖ¾ÎÄ¼ş×îºóÒ»ĞĞÄÚÈİÎª£º"+lastlineContent);
+							System.out.println("æ—¥å¿—æ–‡ä»¶æœ€åä¸€è¡Œå†…å®¹ä¸ºï¼š"+lastlineContent);
 							
-							if(!lastlineContent.equals("Ö´ĞĞ½áÊøendStat")){
-								System.out.println("ÔÚÈÕÖ¾ÎÄ¼ş×îºóÒ»ĞĞÔö¼Ó½áÊø±êÊ¶");
+							if(!lastlineContent.equals("æ‰§è¡Œç»“æŸendStat")){
+								System.out.println("åœ¨æ—¥å¿—æ–‡ä»¶æœ€åä¸€è¡Œå¢åŠ ç»“æŸæ ‡è¯†");
 								BufferedWriter writer=new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(textField_1.getText()),true),"UTF-8"));
-								String writedate="\n"+"Ö´ĞĞ½áÊøendStat"+"\n";
+								String writedate="\n"+"æ‰§è¡Œç»“æŸendStat"+"\n";
 					        	writer.append(writedate, 0,writedate.length());
-					        	writer.flush();//Ë¢ĞÂ»º³åÇø
+					        	writer.flush();//åˆ·æ–°ç¼“å†²åŒº
 					        	writer.close();
 					        	scanfile(textField_1.getText());
-					        	System.out.println("Ôö¼Ó½áÊø±êÊ¶Íê±Ïºó£¬ÄÚÈİÎª£º"+lastlineContent);
+					        	System.out.println("å¢åŠ ç»“æŸæ ‡è¯†å®Œæ¯•åï¼Œå†…å®¹ä¸ºï¼š"+lastlineContent);
 							}
 							
 //							System.out.println(file_name_list.get(0));
@@ -1009,13 +1009,13 @@ public class VadJF extends JFrame {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-						textArea_1.append("Ñ¡ÔñÈÕÖ¾ÎÄ¼ş£º"+textField_1.getText()+"Éú³É±¨¸æÍê±Ï£¡"+"\n");
+						textArea_1.append("é€‰æ‹©æ—¥å¿—æ–‡ä»¶ï¼š"+textField_1.getText()+"ç”ŸæˆæŠ¥å‘Šå®Œæ¯•ï¼"+"\n");
 			        	textArea_1.paintImmediately(textArea_1.getBounds());
 			        	textArea_1.setCaretPosition(textArea_1.getText().length());  
 						button_1.setEnabled(true);
 						textField_1.setText(null);
 					}else {
-						JOptionPane.showMessageDialog(getContentPane(),"ÎÄ¼ş²»´æÔÚ/²»ÊÇÎÄ¼ş");
+						JOptionPane.showMessageDialog(getContentPane(),"æ–‡ä»¶ä¸å­˜åœ¨/ä¸æ˜¯æ–‡ä»¶");
 						button_1.setEnabled(true);
 					}
 					
@@ -1041,14 +1041,14 @@ public class VadJF extends JFrame {
 		contentPane.add(lblAndroid);
 		
 		btnNewButton = new JButton("\u5B89\u88C5apk\u5E76push\u97F3\u9891");
-		btnNewButton.setFont(new Font("ËÎÌå", Font.PLAIN, 11));
+		btnNewButton.setFont(new Font("å®‹ä½“", Font.PLAIN, 11));
 		btnNewButton.setHorizontalAlignment(SwingConstants.LEFT);
 		btnNewButton.setEnabled(false);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				btnNewButton.setEnabled(false);
 				if(textField.getText().isEmpty()){
-					JOptionPane.showMessageDialog(getContentPane(),"Î´Ìí¼Ó²âÊÔÒôÆµËùÔÚÄ¿Â¼Â·¾¶£¬ÇëÉèÖÃ²âÊÔÒôÆµËùÔÚÄ¿Â¼Â·¾¶");
+					JOptionPane.showMessageDialog(getContentPane(),"æœªæ·»åŠ æµ‹è¯•éŸ³é¢‘æ‰€åœ¨ç›®å½•è·¯å¾„ï¼Œè¯·è®¾ç½®æµ‹è¯•éŸ³é¢‘æ‰€åœ¨ç›®å½•è·¯å¾„");
 					btnNewButton.setEnabled(true);
 				}else {
 					textArea.setText(""); 
@@ -1066,9 +1066,9 @@ public class VadJF extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 					if(helpers_isExsit){
-						System.out.println("ÒÑ´æÔÚ¸¨Öú¹¤¾ß");
+						System.out.println("å·²å­˜åœ¨è¾…åŠ©å·¥å…·");
 					}else {
-						System.out.println("´ò¿ª¸¨Öú¹¤¾ß");
+						System.out.println("æ‰“å¼€è¾…åŠ©å·¥å…·");
 						helpers=new Helpers();
 						helpers_isExsit=true;
 						
@@ -1149,10 +1149,10 @@ public class VadJF extends JFrame {
 //		int count=0;
 		while((strRead = reader.readLine())!= null){
 //			count++;
-//			System.out.println("µÚ"+count+"ĞĞÎª:"+strRead);
+//			System.out.println("ç¬¬"+count+"è¡Œä¸º:"+strRead);
 			
 			
-			if(strRead.contains("unit_test.export.vadtest.AICloudDMListenerTest1: onInit: ³õÊ¼»¯³É¹¦!")){
+			if(strRead.contains("unit_test.export.vadtest.AICloudDMListenerTest1: onInit: åˆå§‹åŒ–æˆåŠŸ!")){
 				file_name_list.clear();
 				feed_file_timelist.clear();
 				vad_startTimelist.clear();
@@ -1162,39 +1162,39 @@ public class VadJF extends JFrame {
 			}
 			
 			
-			if(strRead.contains("¿ªÊ¼Î¹µÚ")){
-				String filename=strRead.substring(strRead.lastIndexOf("£º")+1);
+			if(strRead.contains("å¼€å§‹å–‚ç¬¬")){
+				String filename=strRead.substring(strRead.lastIndexOf("ï¼š")+1);
 //				System.out.println(filename);
 				file_name_list.add(filename);
 			}
 			
-			if(strRead.contains("¿ªÊ¼feedÒôÆµµÄÊ±¼äÎª:")){
-				String feed_file_time=strRead.substring(strRead.indexOf("¿ªÊ¼feedÒôÆµµÄÊ±¼äÎª:")+("¿ªÊ¼feedÒôÆµµÄÊ±¼äÎª:").length(),strRead.indexOf(","));
+			if(strRead.contains("å¼€å§‹feedéŸ³é¢‘çš„æ—¶é—´ä¸º:")){
+				String feed_file_time=strRead.substring(strRead.indexOf("å¼€å§‹feedéŸ³é¢‘çš„æ—¶é—´ä¸º:")+("å¼€å§‹feedéŸ³é¢‘çš„æ—¶é—´ä¸º:").length(),strRead.indexOf(","));
 //				System.out.println(feed_file_time);
 				feed_file_timelist.add(feed_file_time);
 			}
 			
-			if(strRead.contains("´ËÊ±vadstartÔÚwavÖĞÎ»ÖÃ´óÔ¼ÊÇ£º")){
-				if(strRead.contains("´ËÊ±vadstartÔÚwavÖĞÎ»ÖÃ´óÔ¼ÊÇ£ºnull")){
+			if(strRead.contains("æ­¤æ—¶vadstartåœ¨wavä¸­ä½ç½®å¤§çº¦æ˜¯ï¼š")){
+				if(strRead.contains("æ­¤æ—¶vadstartåœ¨wavä¸­ä½ç½®å¤§çº¦æ˜¯ï¼šnull")){
 					String vadStartTime="null";
 //					System.out.println(vadStartTime);
 					vad_startTimelist.add(vadStartTime);
 				}else {
-					String vadStartTime=strRead.substring(strRead.indexOf("´ËÊ±vadstartÔÚwavÖĞÎ»ÖÃ´óÔ¼ÊÇ£º")+("´ËÊ±vadstartÔÚwavÖĞÎ»ÖÃ´óÔ¼ÊÇ£º").length());
+					String vadStartTime=strRead.substring(strRead.indexOf("æ­¤æ—¶vadstartåœ¨wavä¸­ä½ç½®å¤§çº¦æ˜¯ï¼š")+("æ­¤æ—¶vadstartåœ¨wavä¸­ä½ç½®å¤§çº¦æ˜¯ï¼š").length());
 					float vadStart=Float.parseFloat(vadStartTime)-300;
 //					System.out.println(vadStartTime);
 					vad_startTimelist.add(vadStart+"");
 				}
 			}
 			
-			if(strRead.contains("´ËÊ±vadendÔÚwavÖĞÎ»ÖÃ´óÔ¼ÊÇ£º")){
-				if(strRead.contains("´ËÊ±vadendÔÚwavÖĞÎ»ÖÃ´óÔ¼ÊÇ£ºnull")){
+			if(strRead.contains("æ­¤æ—¶vadendåœ¨wavä¸­ä½ç½®å¤§çº¦æ˜¯ï¼š")){
+				if(strRead.contains("æ­¤æ—¶vadendåœ¨wavä¸­ä½ç½®å¤§çº¦æ˜¯ï¼šnull")){
 					String vadEndTime="null";
 //					System.out.println(vadEndTime);
 					vad_end_notpauseTime_Timelist.add(vadEndTime);
 					vad_endTimelist.add(vadEndTime);
 				}else {
-					String vadEndTime=strRead.substring(strRead.indexOf("´ËÊ±vadendÔÚwavÖĞÎ»ÖÃ´óÔ¼ÊÇ£º")+("´ËÊ±vadendÔÚwavÖĞÎ»ÖÃ´óÔ¼ÊÇ£º").length());
+					String vadEndTime=strRead.substring(strRead.indexOf("æ­¤æ—¶vadendåœ¨wavä¸­ä½ç½®å¤§çº¦æ˜¯ï¼š")+("æ­¤æ—¶vadendåœ¨wavä¸­ä½ç½®å¤§çº¦æ˜¯ï¼š").length());
 					float vadEnd_noPausetime=Float.parseFloat(vadEndTime)-425;
 //					System.out.println(vadEndTime);
 					vad_end_notpauseTime_Timelist.add(vadEnd_noPausetime+"");
@@ -1202,13 +1202,13 @@ public class VadJF extends JFrame {
 				}
 			}
 			
-			if(strRead.contains("×îÖÕÊ¶±ğ½á¹ûonAsr£º")){
-				String AsrIdentify_Result=strRead.substring(strRead.indexOf("×îÖÕÊ¶±ğ½á¹ûonAsr£º")+("×îÖÕÊ¶±ğ½á¹ûonAsr£º").length());
+			if(strRead.contains("æœ€ç»ˆè¯†åˆ«ç»“æœonAsrï¼š")){
+				String AsrIdentify_Result=strRead.substring(strRead.indexOf("æœ€ç»ˆè¯†åˆ«ç»“æœonAsrï¼š")+("æœ€ç»ˆè¯†åˆ«ç»“æœonAsrï¼š").length());
 //				System.out.println(AsrIdentify_Result);
 				asrIdentify_Resultlist.add(AsrIdentify_Result);
 			}
 			
-			if(strRead.contains("Ö´ĞĞ½áÊøendStat")){
+			if(strRead.contains("æ‰§è¡Œç»“æŸendStat")){
 				System.out.println("file_name_list:"+file_name_list.size());
 				System.out.println("feed_file_timelist:"+feed_file_timelist.size());
 				System.out.println("vad_startTimelist:"+vad_startTimelist.size());
@@ -1220,14 +1220,14 @@ public class VadJF extends JFrame {
 					for(int i=0;i<file_name_list.size()-feed_file_timelist.size();i++){
 						feed_file_timelist.add("null");
 					}
-					System.out.println("Ìí¼ÓÍê±Ïºófeed_file_timelist³¤¶ÈÎª£º"+feed_file_timelist.size());
+					System.out.println("æ·»åŠ å®Œæ¯•åfeed_file_timelisté•¿åº¦ä¸ºï¼š"+feed_file_timelist.size());
 				}
 				if(file_name_list.size()>vad_startTimelist.size()){
 					System.out.println("file_name_list.size()>vad_startTimelist.size()");
 					for(int i=0;i<file_name_list.size()-vad_startTimelist.size();i++){
 						vad_startTimelist.add("null");
 					}
-					System.out.println("Ìí¼ÓÍê±Ïºóvad_startTimelist³¤¶ÈÎª£º"+vad_startTimelist.size());
+					System.out.println("æ·»åŠ å®Œæ¯•åvad_startTimelisté•¿åº¦ä¸ºï¼š"+vad_startTimelist.size());
 				}
 				
 				if(vad_startTimelist.size()>vad_end_notpauseTime_Timelist.size()){
@@ -1235,7 +1235,7 @@ public class VadJF extends JFrame {
 					for(int i=0;i<vad_startTimelist.size()-vad_end_notpauseTime_Timelist.size();i++){
 						vad_end_notpauseTime_Timelist.add("null");
 					}
-					System.out.println("Ìí¼ÓÍê±Ïºóvad_end_notpauseTime_Timelist³¤¶ÈÎª£º"+vad_end_notpauseTime_Timelist.size());
+					System.out.println("æ·»åŠ å®Œæ¯•åvad_end_notpauseTime_Timelisté•¿åº¦ä¸ºï¼š"+vad_end_notpauseTime_Timelist.size());
 				}
 				
 				if(vad_startTimelist.size()>vad_endTimelist.size()){
@@ -1243,7 +1243,7 @@ public class VadJF extends JFrame {
 					for(int i=0;i<vad_startTimelist.size()-vad_endTimelist.size();i++){
 						vad_endTimelist.add("null");
 					}
-					System.out.println("Ìí¼ÓÍê±Ïºóvad_endTimelist³¤¶ÈÎª£º"+vad_endTimelist.size());
+					System.out.println("æ·»åŠ å®Œæ¯•åvad_endTimelisté•¿åº¦ä¸ºï¼š"+vad_endTimelist.size());
 				}
 				
 				if(vad_startTimelist.size()>asrIdentify_Resultlist.size()){
@@ -1251,7 +1251,7 @@ public class VadJF extends JFrame {
 					for(int i=0;i<vad_startTimelist.size()-asrIdentify_Resultlist.size();i++){
 						asrIdentify_Resultlist.add("null");
 					}
-					System.out.println("Ìí¼ÓÍê±ÏºóasrIdentify_Resultlist³¤¶ÈÎª£º"+asrIdentify_Resultlist.size());
+					System.out.println("æ·»åŠ å®Œæ¯•åasrIdentify_Resultlisté•¿åº¦ä¸ºï¼š"+asrIdentify_Resultlist.size());
 				}
 				
 			}
@@ -1263,35 +1263,35 @@ public class VadJF extends JFrame {
 		reader.close();
 	}
 	
-	//´´½¨excel
+	//åˆ›å»ºexcel
 	public void create_excel(String filename) throws Exception{
 		View m_view = new View();
-		 //ÉèÖÃsheetÒ³Êı
+		 //è®¾ç½®sheeté¡µæ•°
         m_view.setNumSheets(1);
-        //ÉèÖÃsheetÒ³µÄÃû³Æ
-        m_view.setSheetName(0,"²âÊÔ±¨¸æ");
-        //Ğ´ÈëµÚ1¸öÒ³Êı¾İ
+        //è®¾ç½®sheeté¡µçš„åç§°
+        m_view.setSheetName(0,"æµ‹è¯•æŠ¥å‘Š");
+        //å†™å…¥ç¬¬1ä¸ªé¡µæ•°æ®
         m_view.setSheet(0);
         
-        //±êÌâ setTextAsValue(ĞĞ£¬ÁĞ£¬Öµ)£»
-        m_view.setTextAsValue(0,0,"±àºÅ");
-        m_view.setTextAsValue(0,1,"ÒôÆµÎÄ¼şÃû³Æ");
-        m_view.setTextAsValue(0,2,"ÒôÆµÎÄ¼şÊ±³¤(µ¥Î»:ms)");
-        m_view.setTextAsValue(0,3,"¿ªÊ¼feedÒôÆµÊ±¼äµã");
-        m_view.setTextAsValue(0,4,"ÔÚÒôÆµÄÚvadstart´óÔ¼Î»ÖÃ(µ¥Î»£ºms)");//±¾ÉíËã³öÀ´µÄvadstartÊÇ°üº¬ÁËpauseTimeµÄÊ±¼ä£¨Ä¬ÈÏÎª300£¬Ã»ÓĞ¸ü¸ÄpausetimeÊ±¼ä£©£¬ËùÒÔÒª¼õÈ¥300ms
-        m_view.setTextAsValue(0,5,"ÔÚÒôÆµÄÚvadend²»°üº¬pauseTimeµÄÊ±¼ä£¬´óÔ¼Î»ÖÃ(µ¥Î»£ºms)");//ÒòÎªÄ¬ÈÏÊÇ300msµÄpauseTimeÊ±¼ä£¬ÓÉÑÓÊ±£¬300Ëù¶ÔÓ¦µÄÑÓÊ±ÊÇ425ms£¬ËùÒÔÒª¼õÈ¥425ms
-        m_view.setTextAsValue(0,6,"ÔÚÒôÆµÄÚvadend´óÔ¼Î»ÖÃ(µ¥Î»£ºms)");
-        m_view.setTextAsValue(0,7,"×îÖÕÊ¶±ğ½á¹û");
+        //æ ‡é¢˜ setTextAsValue(è¡Œï¼Œåˆ—ï¼Œå€¼)ï¼›
+        m_view.setTextAsValue(0,0,"ç¼–å·");
+        m_view.setTextAsValue(0,1,"éŸ³é¢‘æ–‡ä»¶åç§°");
+        m_view.setTextAsValue(0,2,"éŸ³é¢‘æ–‡ä»¶æ—¶é•¿(å•ä½:ms)");
+        m_view.setTextAsValue(0,3,"å¼€å§‹feedéŸ³é¢‘æ—¶é—´ç‚¹");
+        m_view.setTextAsValue(0,4,"åœ¨éŸ³é¢‘å†…vadstartå¤§çº¦ä½ç½®(å•ä½ï¼šms)");//æœ¬èº«ç®—å‡ºæ¥çš„vadstartæ˜¯åŒ…å«äº†pauseTimeçš„æ—¶é—´ï¼ˆé»˜è®¤ä¸º300ï¼Œæ²¡æœ‰æ›´æ”¹pausetimeæ—¶é—´ï¼‰ï¼Œæ‰€ä»¥è¦å‡å»300ms
+        m_view.setTextAsValue(0,5,"åœ¨éŸ³é¢‘å†…vadendä¸åŒ…å«pauseTimeçš„æ—¶é—´ï¼Œå¤§çº¦ä½ç½®(å•ä½ï¼šms)");//å› ä¸ºé»˜è®¤æ˜¯300msçš„pauseTimeæ—¶é—´ï¼Œç”±å»¶æ—¶ï¼Œ300æ‰€å¯¹åº”çš„å»¶æ—¶æ˜¯425msï¼Œæ‰€ä»¥è¦å‡å»425ms
+        m_view.setTextAsValue(0,6,"åœ¨éŸ³é¢‘å†…vadendå¤§çº¦ä½ç½®(å•ä½ï¼šms)");
+        m_view.setTextAsValue(0,7,"æœ€ç»ˆè¯†åˆ«ç»“æœ");
         
         
-        m_view.setColWidth(0, 1216);//ÉèÖÃµÚÒ»ÁĞµÄ×Ô¶¨Òåµ¥Ôª¸ñĞĞ¿í
-        m_view.setColWidth(1, 7040);//ÉèÖÃµÚÒ»ÁĞµÄ×Ô¶¨Òåµ¥Ôª¸ñĞĞ¿í
-        m_view.setColWidth(2, 6400);//ÉèÖÃµÚÒ»ÁĞµÄ×Ô¶¨Òåµ¥Ôª¸ñĞĞ¿í
-        m_view.setColWidth(3, 5504);//ÉèÖÃµÚÒ»ÁĞµÄ×Ô¶¨Òåµ¥Ôª¸ñĞĞ¿í
-        m_view.setColWidth(4, 7859);//ÉèÖÃµÚÒ»ÁĞµÄ×Ô¶¨Òåµ¥Ôª¸ñĞĞ¿í
-        m_view.setColWidth(5, 8448);//ÉèÖÃµÚÒ»ÁĞµÄ×Ô¶¨Òåµ¥Ôª¸ñĞĞ¿í
-        m_view.setColWidth(6, 7680);//ÉèÖÃµÚÒ»ÁĞµÄ×Ô¶¨Òåµ¥Ôª¸ñĞĞ¿í
-        m_view.setColWidth(7, 7680);//ÉèÖÃµÚÒ»ÁĞµÄ×Ô¶¨Òåµ¥Ôª¸ñĞĞ¿í
+        m_view.setColWidth(0, 1216);//è®¾ç½®ç¬¬ä¸€åˆ—çš„è‡ªå®šä¹‰å•å…ƒæ ¼è¡Œå®½
+        m_view.setColWidth(1, 7040);//è®¾ç½®ç¬¬ä¸€åˆ—çš„è‡ªå®šä¹‰å•å…ƒæ ¼è¡Œå®½
+        m_view.setColWidth(2, 6400);//è®¾ç½®ç¬¬ä¸€åˆ—çš„è‡ªå®šä¹‰å•å…ƒæ ¼è¡Œå®½
+        m_view.setColWidth(3, 5504);//è®¾ç½®ç¬¬ä¸€åˆ—çš„è‡ªå®šä¹‰å•å…ƒæ ¼è¡Œå®½
+        m_view.setColWidth(4, 7859);//è®¾ç½®ç¬¬ä¸€åˆ—çš„è‡ªå®šä¹‰å•å…ƒæ ¼è¡Œå®½
+        m_view.setColWidth(5, 8448);//è®¾ç½®ç¬¬ä¸€åˆ—çš„è‡ªå®šä¹‰å•å…ƒæ ¼è¡Œå®½
+        m_view.setColWidth(6, 7680);//è®¾ç½®ç¬¬ä¸€åˆ—çš„è‡ªå®šä¹‰å•å…ƒæ ¼è¡Œå®½
+        m_view.setColWidth(7, 7680);//è®¾ç½®ç¬¬ä¸€åˆ—çš„è‡ªå®šä¹‰å•å…ƒæ ¼è¡Œå®½
         
         m_view.writeXLSX(reportsFileDirPath+"\\"+filename);
 	}
@@ -1310,10 +1310,10 @@ public class VadJF extends JFrame {
 				m_view.setTextAsValue(1+i,2,file_timeLong_list.get(i));
 			} catch (Exception e) {
 				// TODO: handle exception
-				m_view.setTextAsValue(1+i,2,"Î´Ö´ĞĞ²âÊÔ£¬Î´»ñÈ¡ÒôÆµÊ±³¤");
+				m_view.setTextAsValue(1+i,2,"æœªæ‰§è¡Œæµ‹è¯•ï¼Œæœªè·å–éŸ³é¢‘æ—¶é•¿");
 			}
 			
-			m_view.setTextAsValue(1+i,3,feed_file_timelist.get(i));//Î¹ÒôÆµÊ±¼äµã
+			m_view.setTextAsValue(1+i,3,feed_file_timelist.get(i));//å–‚éŸ³é¢‘æ—¶é—´ç‚¹
 
 			if(vad_startTimelist.get(i)=="null"){
 				m_view.setTextAsValue(1+i,4,"null");

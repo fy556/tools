@@ -11,11 +11,11 @@ public class DBHelper implements DBConfig{
 	private static Connection conn;
 	private static Statement stat;
 	private static ResultSet rs;
-	public static Connection getConnection() {                                      // »ñµÃConnectionÀàĞÍ¶ÔÏó
+	public static Connection getConnection() {                                      // è·å¾—Connectionç±»å‹å¯¹è±¡
 		try {
 			Class.forName(Driver);
 			conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-			System.out.println("Êı¾İ¿âÁ¬½Ó³É¹¦");
+			System.out.println("æ•°æ®åº“è¿æ¥æˆåŠŸ");
 			return conn;
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -24,7 +24,7 @@ public class DBHelper implements DBConfig{
 		}
 		return null;
 	}
-	public static Statement openStatement() {                                       // »ñµÃStatementÀàĞÍ¶ÔÏó
+	public static Statement openStatement() {                                       // è·å¾—Statementç±»å‹å¯¹è±¡
 
 		try {
 
@@ -42,7 +42,7 @@ public class DBHelper implements DBConfig{
 
 	}
 
-	public static int update(String sql) {                                                // Íê³ÉÊı¾İµÄ¸üĞÂ²Ù×÷
+	public static int update(String sql) {                                                // å®Œæˆæ•°æ®çš„æ›´æ–°æ“ä½œ
 
 		try {
 
@@ -57,7 +57,7 @@ public class DBHelper implements DBConfig{
 		return -1;
 
 	}
-	public static ResultSet query(String sql) {                                       // Íê³ÉÊı¾İµÄ²éÑ¯²Ù×÷
+	public static ResultSet query(String sql) {                                       // å®Œæˆæ•°æ®çš„æŸ¥è¯¢æ“ä½œ
 
 		try {
 
@@ -74,7 +74,7 @@ public class DBHelper implements DBConfig{
 		return null;
 
 	}
-	public static void close() {                                                      // ÊÍ·Å×ÊÔ´
+	public static void close() {                                                      // é‡Šæ”¾èµ„æº
 
 		if (rs != null) {
 

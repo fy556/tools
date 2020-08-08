@@ -22,5 +22,8 @@
 	<classpathentry kind="lib" path="E:/Study/data/javaSE/workspace/workspace/httpcomponents-client-4.5.7-bin/httpcomponents-client-4.5.7/lib/httpcore-4.4.11.jar"/>
 	<classpathentry kind="lib" path="E:/Study/data/javaSE/workspace/workspace/autoToos/libs/jaudiotagger-2.2.6-SNAPSHOT.jar"/>
 	<classpathentry kind="lib" path="E:/Study/data/javaSE/workspace/workspace/autoToos/libs/jxcell.jar"/>
+	<classpathentry kind="lib" path="E:/git/test/autoToos/libs/AXMLPrinter2.jar"/>
+	<classpathentry kind="lib" path="E:/git/test/autoToos/libs/jna.jar"/>
+	<classpathentry kind="lib" path="E:/git/test/autoToos/libs/jna-3.3.0-platform.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

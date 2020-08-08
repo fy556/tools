@@ -93,18 +93,18 @@ public class Signin extends JFrame {
 			@Override
 			public void focusLost(FocusEvent e) {
 				if(SigninAccount.getText().isEmpty()){
-					System.out.println("×¢²áÕËºÅ²»ÄÜÎª¿Õ");
-					hint1.setText("²»ÄÜÎª¿Õ£¡");
+					System.out.println("æ³¨å†Œè´¦å·ä¸èƒ½ä¸ºç©º");
+					hint1.setText("ä¸èƒ½ä¸ºç©ºï¼");
 				}else {
 					String sql = "select * from account where UserName = '" + SigninAccount.getText() + "';";
-					ResultSet rs = DBHelper.query(sql);// ²éÑ¯±í¸ñÖĞ°üº¬¸ÃÓÃ»§ÃûµÄ¼ÇÂ¼
+					ResultSet rs = DBHelper.query(sql);// æŸ¥è¯¢è¡¨æ ¼ä¸­åŒ…å«è¯¥ç”¨æˆ·åçš„è®°å½•
 					try {
 						if (!rs.next()) {
-							System.out.println("Êı¾İ¿âÖĞ²éÑ¯"+SigninAccount.getText()+"ÕËºÅ²»´æÔÚ£¬¿ÉÒÔ×¢²á£¡");
-							hint1.setText("¿ÉÒÔ×¢²á");
+							System.out.println("æ•°æ®åº“ä¸­æŸ¥è¯¢"+SigninAccount.getText()+"è´¦å·ä¸å­˜åœ¨ï¼Œå¯ä»¥æ³¨å†Œï¼");
+							hint1.setText("å¯ä»¥æ³¨å†Œ");
 						} else {
-							System.out.println("Êı¾İ¿âÖĞ²éÑ¯"+SigninAccount.getText()+"ÕËºÅÒÑ´æÔÚ£¬²»¿ÉÒÔ×¢²á£¡");
-							hint1.setText("ÕËºÅÒÑ±»×¢²á");
+							System.out.println("æ•°æ®åº“ä¸­æŸ¥è¯¢"+SigninAccount.getText()+"è´¦å·å·²å­˜åœ¨ï¼Œä¸å¯ä»¥æ³¨å†Œï¼");
+							hint1.setText("è´¦å·å·²è¢«æ³¨å†Œ");
 						}
 					}catch (SQLException e1) {
 						e1.printStackTrace();
@@ -114,18 +114,18 @@ public class Signin extends JFrame {
 			@Override
 			public void focusGained(FocusEvent e) {
 				if(SigninAccount.getText().isEmpty()){
-					System.out.println("×¢²áÕËºÅ²»ÄÜÎª¿Õ");
-					hint1.setText("²»ÄÜÎª¿Õ£¡");
+					System.out.println("æ³¨å†Œè´¦å·ä¸èƒ½ä¸ºç©º");
+					hint1.setText("ä¸èƒ½ä¸ºç©ºï¼");
 				}else {
 					String sql = "select * from account where UserName = '" + SigninAccount.getText() + "';";
-					ResultSet rs = DBHelper.query(sql);// ²éÑ¯±í¸ñÖĞ°üº¬¸ÃÓÃ»§ÃûµÄ¼ÇÂ¼
+					ResultSet rs = DBHelper.query(sql);// æŸ¥è¯¢è¡¨æ ¼ä¸­åŒ…å«è¯¥ç”¨æˆ·åçš„è®°å½•
 					try {
 						if (!rs.next()) {
-							System.out.println("Êı¾İ¿âÖĞ²éÑ¯"+SigninAccount.getText()+"ÕËºÅ²»´æÔÚ£¬¿ÉÒÔ×¢²á£¡");
-							hint1.setText("¿ÉÒÔ×¢²á");
+							System.out.println("æ•°æ®åº“ä¸­æŸ¥è¯¢"+SigninAccount.getText()+"è´¦å·ä¸å­˜åœ¨ï¼Œå¯ä»¥æ³¨å†Œï¼");
+							hint1.setText("å¯ä»¥æ³¨å†Œ");
 						} else {
-							System.out.println("Êı¾İ¿âÖĞ²éÑ¯"+SigninAccount.getText()+"ÕËºÅÒÑ´æÔÚ£¬²»¿ÉÒÔ×¢²á£¡");
-							hint1.setText("ÕËºÅÒÑ±»×¢²á");
+							System.out.println("æ•°æ®åº“ä¸­æŸ¥è¯¢"+SigninAccount.getText()+"è´¦å·å·²å­˜åœ¨ï¼Œä¸å¯ä»¥æ³¨å†Œï¼");
+							hint1.setText("è´¦å·å·²è¢«æ³¨å†Œ");
 						}
 					}catch (SQLException e1) {
 						e1.printStackTrace();
@@ -142,8 +142,8 @@ public class Signin extends JFrame {
 			@Override
 			public void focusLost(FocusEvent e) {
 				if(new String(passwordField.getPassword()).isEmpty()){
-					System.out.println("ÃÜÂë²»ÄÜÎª¿Õ");
-					hint2.setText("²»ÄÜÎª¿Õ£¡");
+					System.out.println("å¯†ç ä¸èƒ½ä¸ºç©º");
+					hint2.setText("ä¸èƒ½ä¸ºç©ºï¼");
 				}else {
 					hint2.setText("");
 				}
@@ -151,8 +151,8 @@ public class Signin extends JFrame {
 			@Override
 			public void focusGained(FocusEvent e) {
 				if(new String(passwordField.getPassword()).isEmpty()){
-					System.out.println("ÃÜÂë²»ÄÜÎª¿Õ");
-					hint2.setText("²»ÄÜÎª¿Õ£¡");
+					System.out.println("å¯†ç ä¸èƒ½ä¸ºç©º");
+					hint2.setText("ä¸èƒ½ä¸ºç©ºï¼");
 				}else {
 					hint2.setText("");
 				}
@@ -166,26 +166,26 @@ public class Signin extends JFrame {
 			@Override
 			public void focusLost(FocusEvent e) {
 				if(new String(passwordField_1.getPassword()).isEmpty()){
-					System.out.println("È·ÈÏÃÜÂë²»ÄÜÎª¿Õ");
-					hint3.setText("²»ÄÜÎª¿Õ£¡");
+					System.out.println("ç¡®è®¤å¯†ç ä¸èƒ½ä¸ºç©º");
+					hint3.setText("ä¸èƒ½ä¸ºç©ºï¼");
 				}else {
 					if(new String(passwordField_1.getPassword()).equals(new String(passwordField.getPassword()))){
 						hint3.setText("");
 					}else {
-						hint3.setText("ÃÜÂë²»Ò»ÖÂ");
+						hint3.setText("å¯†ç ä¸ä¸€è‡´");
 					}
 				}
 			}
 			@Override
 			public void focusGained(FocusEvent e) {
 				if(new String(passwordField_1.getPassword()).isEmpty()){
-					System.out.println("È·ÈÏÃÜÂë²»ÄÜÎª¿Õ");
-					hint3.setText("²»ÄÜÎª¿Õ£¡");
+					System.out.println("ç¡®è®¤å¯†ç ä¸èƒ½ä¸ºç©º");
+					hint3.setText("ä¸èƒ½ä¸ºç©ºï¼");
 				}else {
 					if(new String(passwordField_1.getPassword()).equals(new String(passwordField.getPassword()))){
 						hint3.setText("");
 					}else {
-						hint3.setText("ÃÜÂë²»Ò»ÖÂ");
+						hint3.setText("å¯†ç ä¸ä¸€è‡´");
 					}
 				}
 			}
@@ -199,8 +199,8 @@ public class Signin extends JFrame {
 			@Override
 			public void focusLost(FocusEvent e) {
 				if(SigninEmail.getText().isEmpty()){
-					System.out.println("×¢²áÕËºÅµÄÓÊÏä²»ÄÜÎª¿Õ");
-					hint4.setText("²»ÄÜÎª¿Õ£¡");
+					System.out.println("æ³¨å†Œè´¦å·çš„é‚®ç®±ä¸èƒ½ä¸ºç©º");
+					hint4.setText("ä¸èƒ½ä¸ºç©ºï¼");
 				}else {
 					hint4.setText("");
 				}
@@ -208,8 +208,8 @@ public class Signin extends JFrame {
 			@Override
 			public void focusGained(FocusEvent e) {
 				if(SigninEmail.getText().isEmpty()){
-					System.out.println("×¢²áÕËºÅµÄÓÊÏä²»ÄÜÎª¿Õ");
-					hint4.setText("²»ÄÜÎª¿Õ£¡");
+					System.out.println("æ³¨å†Œè´¦å·çš„é‚®ç®±ä¸èƒ½ä¸ºç©º");
+					hint4.setText("ä¸èƒ½ä¸ºç©ºï¼");
 				}else {
 					hint4.setText("");
 				}
@@ -225,41 +225,41 @@ public class Signin extends JFrame {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(SigninAccount.getText().isEmpty()){
-					System.out.println("×¢²áÕËºÅ²»ÄÜÎª¿Õ");
-					hint1.setText("²»ÄÜÎª¿Õ£¡");
+					System.out.println("æ³¨å†Œè´¦å·ä¸èƒ½ä¸ºç©º");
+					hint1.setText("ä¸èƒ½ä¸ºç©ºï¼");
 				}
 				if(new String(passwordField.getPassword()).isEmpty()){
-					System.out.println("ÃÜÂë²»ÄÜÎª¿Õ");
-					hint2.setText("²»ÄÜÎª¿Õ£¡");
+					System.out.println("å¯†ç ä¸èƒ½ä¸ºç©º");
+					hint2.setText("ä¸èƒ½ä¸ºç©ºï¼");
 				}
 				if(new String(passwordField_1.getPassword()).isEmpty()){
-					System.out.println("È·ÈÏÃÜÂë²»ÄÜÎª¿Õ");
-					hint3.setText("²»ÄÜÎª¿Õ£¡");
+					System.out.println("ç¡®è®¤å¯†ç ä¸èƒ½ä¸ºç©º");
+					hint3.setText("ä¸èƒ½ä¸ºç©ºï¼");
 				}
 				if(SigninEmail.getText().isEmpty()){
-					System.out.println("×¢²áÕËºÅµÄÓÊÏä²»ÄÜÎª¿Õ");
-					hint4.setText("²»ÄÜÎª¿Õ£¡");
+					System.out.println("æ³¨å†Œè´¦å·çš„é‚®ç®±ä¸èƒ½ä¸ºç©º");
+					hint4.setText("ä¸èƒ½ä¸ºç©ºï¼");
 				}
 				if((!SigninAccount.getText().isEmpty())&&(!new String(passwordField.getPassword()).isEmpty())&&(!new String(passwordField_1.getPassword()).isEmpty())&&(!SigninEmail.getText().isEmpty())){
 					if(new String(passwordField_1.getPassword()).equals(new String(passwordField.getPassword()))){
-						System.out.println("×¢²áÓÃ»§ÃûÊÇ:"+SigninAccount.getText());
-						System.out.println("×¢²áµÄÃÜÂëÊÇ:"+String.valueOf(passwordField.getPassword()));
-						System.out.println("È·ÈÏµÄÃÜÂëÊÇ:"+String.valueOf(passwordField_1.getPassword()));
-						System.out.println("×¢²áÓÃÓÊÏäÊÇ:"+SigninEmail.getText());
+						System.out.println("æ³¨å†Œç”¨æˆ·åæ˜¯:"+SigninAccount.getText());
+						System.out.println("æ³¨å†Œçš„å¯†ç æ˜¯:"+String.valueOf(passwordField.getPassword()));
+						System.out.println("ç¡®è®¤çš„å¯†ç æ˜¯:"+String.valueOf(passwordField_1.getPassword()));
+						System.out.println("æ³¨å†Œç”¨é‚®ç®±æ˜¯:"+SigninEmail.getText());
 						String sql = "select * from account where UserName = '" + SigninAccount.getText() + "';";
-						ResultSet rs = DBHelper.query(sql);// ²éÑ¯±í¸ñÖĞ°üº¬¸ÃÓÃ»§ÃûµÄ¼ÇÂ¼
+						ResultSet rs = DBHelper.query(sql);// æŸ¥è¯¢è¡¨æ ¼ä¸­åŒ…å«è¯¥ç”¨æˆ·åçš„è®°å½•
 						try {
 							if (!rs.next()) {
-								System.out.println("Êı¾İ¿âÖĞ²éÑ¯"+SigninAccount.getText()+"ÕËºÅ²»´æÔÚ£¬¿ÉÒÔ×¢²á£¡");
+								System.out.println("æ•°æ®åº“ä¸­æŸ¥è¯¢"+SigninAccount.getText()+"è´¦å·ä¸å­˜åœ¨ï¼Œå¯ä»¥æ³¨å†Œï¼");
 								String sql1 = "insert into account(UserName,PassWord,Email) values ('"+SigninAccount.getText()+"','"+new String(passwordField.getPassword())+"','"+SigninEmail.getText()+"');";
 								int rs1=DBHelper.update(sql1);
 								if(rs1!=-1){
-									System.out.println("×¢²á³É¹¦");
-									/*JDialog dialog=new JDialog(Signin.this, "ÌáÊ¾", true);
+									System.out.println("æ³¨å†ŒæˆåŠŸ");
+									/*JDialog dialog=new JDialog(Signin.this, "æç¤º", true);
 									Container dialogContainer=dialog.getContentPane();
 									
-									dialogContainer.add(new JLabel("×¢²á³É¹¦"));
-									dialogContainer.add(new JButton("È·¶¨"));
+									dialogContainer.add(new JLabel("æ³¨å†ŒæˆåŠŸ"));
+									dialogContainer.add(new JButton("ç¡®å®š"));
 									dialogContainer.setLayout(null);
 									dialog.setSize(200, 100);
 									dialog.setVisible(true);*/
@@ -267,20 +267,20 @@ public class Signin extends JFrame {
 //									dLoginHint.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 //									dLoginHint.setModalityType(JDialog.ModalityType.APPLICATION_MODAL);
 //									dLoginHint.setVisible(true);
-									JOptionPane.showMessageDialog(getContentPane(), "×¢²á³É¹¦", "ÌáÊ¾",JOptionPane.WARNING_MESSAGE);  
+									JOptionPane.showMessageDialog(getContentPane(), "æ³¨å†ŒæˆåŠŸ", "æç¤º",JOptionPane.WARNING_MESSAGE);  
 								}else {
-									System.out.println("×¢²áÊ§°Ü");
+									System.out.println("æ³¨å†Œå¤±è´¥");
 								}
 
 							} else {
-								System.out.println("Êı¾İ¿âÖĞ²éÑ¯"+SigninAccount.getText()+"ÕËºÅÒÑ´æÔÚ£¬²»¿ÉÒÔ×¢²á£¡");
-								hint1.setText("ÕËºÅÒÑ±»×¢²á");
+								System.out.println("æ•°æ®åº“ä¸­æŸ¥è¯¢"+SigninAccount.getText()+"è´¦å·å·²å­˜åœ¨ï¼Œä¸å¯ä»¥æ³¨å†Œï¼");
+								hint1.setText("è´¦å·å·²è¢«æ³¨å†Œ");
 							}
 						} catch (SQLException e1) {
 							e1.printStackTrace();
 						}
 					}else {
-						hint3.setText("ÃÜÂë²»Ò»ÖÂ");
+						hint3.setText("å¯†ç ä¸ä¸€è‡´");
 					}
 				}
 			}
